@@ -1,0 +1,10 @@
+:root{
+  --grid-width: 1140px;
+  --grid-gutter: .5em;
+  --white-color: #ffffff;
+  --gray: rgba(222, 215, 230, 0.8);
+  --purple: rgb(167, 74, 255);
+  --blue: rgb(115, 206, 243);
+  --index: calc(1vw + 1vh);
+  --transition: ease-in-out;
+}
