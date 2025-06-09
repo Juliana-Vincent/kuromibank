@@ -1,26 +1,178 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import '../../css/vars.css';
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-blue-400);
+}
+.container {
+  max-width: calc(var(--grid-width) + var(--grid-gutter) * 2);
+  margin: auto;
+  padding: 0 var(--grid-gutter);
+}
+.header, .content {
+  background-image: url(/img/bgindex.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.header-info {
+  background-image: url(/img/kuromiQuestion.png);
+}
+.header-contacts {
+  background-image: url(/img/bgcontacts2.png);
+}
+
+.content {
+  background-image: url(/img/bg2.jpg);
+}
+.dashboard {
+  background-image: url(/img/bgNoCharacters.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.header-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-main {
+  height: 100%;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+
+h1 {
+  font-size: calc(var(--index) * 5);
+  text-transform: uppercase;
+  font-weight: 900;
+  max-width: 800px;
+  color: white;
+}
+.h1Contacts {
+  font-size: calc(var(--index) * 3);
+  max-width: 850px;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+.h2Contacts {
+  font-size: calc(var(--index));
+  color: var(--purple);
+  font-weight: 600;
+}
+.header-contacts ul {
+  color: var(--purple);
+  text-shadow: 5px 2px 10px #ffffff;
+}
+
+p {
+  max-width: 560px;
+  color: var(--purple);
+  text-shadow: 5px 2px 10px #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.header-contacts p {
+  color: white;
+  text-shadow: 5px 2px 10px #ffffff;
+}
+.pFaqs {
+  color: var(--pink);
+  text-shadow: 2px 2px 10px #a86262;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 110px;
+  border-radius: 18px;
+  transition: 0.4s;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+.box {
+  max-height: 500px;
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  margin: 0 20px;
+  border-radius: 18px;
+  background: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 16px 0 rgb(0, 0, 0, 0.5);
+}
+.content .box {
+  margin-top: 80px;
+}
+
+@media only screen and (max-width: 870px) {
+  h1 {
+    font-size: calc(var(--index) * 3);
+    max-width: 500px;
+  }
+  .header, .content {
+    background-image: url(/img/indexSM.png);
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+  }
+  h1 {
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+  .header-contacts {
+    background-image: url(/img/bgcontacts.png);
+  }
+  .content {
+    background-image: url(/img/bg2.jpg);
+  }
+  .container {
+    padding: 0 50px;
+  }
+  .header-info {
+    background-image: url(/img/kuromiQuestion2.png);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .dashboard {
+    padding-top: 180px;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

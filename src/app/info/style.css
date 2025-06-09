@@ -1,0 +1,46 @@
+.head {
+  width: 100%;
+}
+.accordion-item-header {
+  color: hsl(292, 42%, 14%);
+  padding-right: 2.5rem;
+  min-height: 4rem;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+ .accordion-item-header::after {
+  content: url("../../../public/img/icon-plus.svg");
+  position: absolute;
+  right: 0;
+}
+.accordion-item-header.active-accordion::after {
+  content: url("../../../public/img/icon-minus.svg");
+}
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-item-content {
+  line-height: 1.5rem;
+  padding-bottom: 1.25rem;
+  color: hsl(292, 16%, 49%);
+}
+.accordion hr {
+  border-top: 0.5px solid hsl(275, 100%, 97%);
+}
+
+.attribution {
+  position: absolute;
+  bottom: 3%;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

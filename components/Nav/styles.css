@@ -1,0 +1,108 @@
+@import '../../css/vars.css';
+
+.main-menu li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.main-menu li > * {
+  color: rgba(255, 255, 255, 0.799);
+  text-transform: uppercase;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 2px;
+  position: relative;
+  transition: ease-in-out;
+  transition-duration: 0.5s;
+}
+
+.main-menu li > *::before,
+.main-menu li > *::after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  background-color: var(--purple);
+  width: 12px;
+  vertical-align: middle;
+  top: -1px;
+  left: -1.5px;
+  position: relative;
+  border-radius: 10em;
+  margin: 0 7px;
+  visibility: hidden;
+}
+
+.main-menu li.active > *,
+.main-menu li:hover > * {
+	color: white!important;
+}
+.main-menu li.mobile > *{
+	color: white!important;
+  display: flex;
+  justify-content: center;
+}
+
+.main-menu li.active > *::before,
+.main-menu li:hover > *::before,
+.main-menu li.active > *::after,
+.main-menu li:hover > *::after {
+  visibility: visible;
+}
+.main-menu li.mobile > *::before,
+.main-menu li:hover > *::before,
+.main-menu li.mobile > *::after,
+.main-menu li:hover > *::after {
+  visibility: hidden;
+}
+
+.aNav {
+  max-height: 2.25rem; 
+  height: 100%;
+  max-width: 7rem; 
+  width: 100%;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 1.25rem;
+}
+
+@media only screen and (max-width: 870px) {
+  .main-menu li > * {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .main-menu li > *::before,
+  .main-menu li > *::after { 
+    width: 8px;
+    margin: 0 3px;
+  }
+
+  .aNav {
+    max-height: 1.75rem; 
+    height: 100%;
+    max-width: 5rem; 
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 0.75rem;
+    font-size: 14px;
+  }
+
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 110px;
+  border-radius: 18px;
+  transition: 0.4s;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+}
+

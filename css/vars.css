@@ -1,0 +1,13 @@
+:root{
+  --grid-width: 1140px;
+  --grid-gutter: .5em;
+  --gray: rgba(222, 215, 230, 0.8);
+  --blue: rgb(115, 206, 243);
+  --purple: var(--color-purple-500);
+  --purpleHover: rgb(167, 74, 255, 0.7);
+  --pink: #FBB8CF;
+  --pinkHover: #fbb8cfa4;
+  --blue: rgb(115, 206, 243);
+  --index: calc(1vw + 1vh);
+  --transition: ease-in-out;
+}
