@@ -35,7 +35,7 @@ export default function Login() {
   const { login } = useAuth();
   const router = useRouter();
   const [form, setForm] = useState({ logName: '', logPhone: '', logPassword: '' });
-  const [alert, setAlert] = useState<string | null>(null); 
+  const [alert, setAlert] = useState<{ description: string; success?: boolean } | null>(null);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,12 +49,12 @@ export default function Login() {
     const user = users.find(u => u.phone === logPhone);
 
     if (!user) {
-      setAlert("No user found with this phone number.");
+      setAlert({ description: 'No user found with this phone number.', success: false });
       return;
     }
 
     if (user.password !== logPassword) {
-      setAlert("Incorrect password.");
+      setAlert({description: 'Incorrect password.', success: false});
       return;
     }
 
@@ -109,7 +109,7 @@ export default function Login() {
                 onMouseLeave={() => setShowPassword(false)}/>
             </div>
             
-            {alert && <CustomAlert description={alert} />}
+            {alert && <CustomAlert description={alert.description} success={alert.success} />}
             <button type="submit" className='flex m-auto items-center justify-center h-9 w-36 rounded-2xl transition-colors duration-400 font-[500] text-white cursor-pointer bg-purple-600 hover:bg-purple-500/80'>
               Log in
             </button>

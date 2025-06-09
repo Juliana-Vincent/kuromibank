@@ -6,6 +6,7 @@ import '../../../css/auth.css';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LockIcon from '@mui/icons-material/Lock';
+import CustomAlert from '../../../components/Alert/page';
 
 interface User {
   phone: string;
@@ -17,6 +18,7 @@ export default function Register() {
   const router = useRouter();
   const [form, setForm] = useState({ name: '', phone: '', password: '', confirmPassword: '' });
   const [showPassword, setShowPassword] = useState(false);
+  const [alert, setAlert] = useState<{ description: string; success?: boolean } | null>(null); 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,7 +29,7 @@ export default function Register() {
 
     const { phone, password, confirmPassword } = form;
     if (password !== confirmPassword) {
-      alert("Passwords do not match.");
+      setAlert({description: 'Passwords do not match.', success: false});
       return;
     }
 
@@ -35,14 +37,14 @@ export default function Register() {
     const exists = users.some(u => u.phone === phone);
 
     if (exists) {
-      alert("Phone already exists.");
+      setAlert({description: 'This phone number is already linked to an account.', success: false});
       return;
     }
 
     users.push({ phone, password, balance: 0 });
     localStorage.setItem('users', JSON.stringify(users));
 
-    alert("Registered successfully!");
+    setAlert({description: 'Registered successfully!', success: true});
     router.push('/login');
   };
 
@@ -102,6 +104,8 @@ export default function Register() {
               onMouseEnter={() => setShowPassword(true)}
               onMouseLeave={() => setShowPassword(false)}/>
           </div>
+
+          {alert && <CustomAlert description={alert.description} success={alert.success} />}
           
           <button type="submit" className="flex m-auto items-center justify-center h-9 w-36 rounded-2xl transition-colors text-white duration-400 font-[500] cursor-pointer bg-purple-600 hover:bg-purple-500/80">
             Register

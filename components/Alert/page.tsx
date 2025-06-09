@@ -3,7 +3,7 @@ import { FC } from "react";
 
 const CustomAlert: FC<{description: string, success?: boolean}> = ({description, success}) => {
   return (
-    <Alert severity={success ? 'success' : 'error'}>{description}</Alert>
+    <Alert className='mb-4' severity={success ? 'success' : 'error'}>{description}</Alert>
     
   );
 }
