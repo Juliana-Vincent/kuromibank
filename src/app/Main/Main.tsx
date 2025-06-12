@@ -31,7 +31,7 @@ export default function Main() {
     </div>
     
   </div>
-  <div className="content content-main">
+  <div className="content  main-header content-main">
     <div className="container">
       <h1 className='m-auto'>Spend with joy!</h1>
       <p className='m-auto max-w-200'>From tiny treats to big dreams, every purchase feels brighter. Sanrio Bank makes saving simple and joyful — no stress, just smiles.</p>

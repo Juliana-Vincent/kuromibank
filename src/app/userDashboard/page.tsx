@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import CustomAlert from '../../../components/Alert/page';
 import { getAllUsers } from '../login/page';
-import { Grid } from '@mui/material';
+import { Grid, useMediaQuery } from '@mui/material';
 import CurrencyConverter from '../../../components/CurrencyConverter/page';
 
 type AlertState = {
@@ -36,6 +36,7 @@ export default function UserDashboard() {
   }, [router]);
   const [showCheck, setShowCheck] = useState(false);
 const [alert, setAlert] = useState<{ message: string; success?: boolean } | null>(null);
+  const isMobile = useMediaQuery('only screen and (max-width: 900px) and (min-width: 500px)');
 
 const validateTransfer = (e: React.FormEvent) => {
   e.preventDefault();
@@ -93,7 +94,8 @@ users[recipientIndex].balance += Number(amount);
 
   return (
     <div className="dashboard w-full min-h-screen flex-col flex items-center justify-center text-center">
-      <h2 className="text-white text-5xl font-bold mb-6 mt-6">User Dashboard</h2>
+      <h2 className={`text-white text-5xl font-bold mb-6 mt-6 ${
+        isMobile ? 'mt-30' : ''}`}>User Dashboard</h2>
       {user && <h3 className="text-3xl text-white mb-4">Welcome, {user}!</h3>}
       <div className="mb-6 text-white text-2xl">Your balance: <strong>${balance}</strong></div>
         <Grid display="flex" justifyContent="center" padding={{xs: 2}} container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>

@@ -52,7 +52,7 @@ export default function Nav(){
             { isMobile ? 
             <><MenuIcon onClick={() => setMenuOpen(true)}  sx={{ fontSize: 50 }} fontSize="large" className='text-purple-400' /> 
             {menuOpen && (
-              <div className="absolute min-h-200 inset-0 bg-black/50 backdrop-blur-3xl flex flex-col items-center justify-center space-y-8">
+              <div className="absolute min-h-250 inset-0 bg-black/50 backdrop-blur-3xl flex flex-col items-center justify-center space-y-8">
               <CloseIcon sx={{ fontSize: 50 }} fontSize="large" 
                 className="absolute top-8 right-12.5 text-purple-400"
                 onClick={() => setMenuOpen(false)}

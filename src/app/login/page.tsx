@@ -1,15 +1,16 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import PageWrapper from "../../../components/AnimationPresence";
-import CustomAlert from '../../../components/Alert/page';
-import '../../../css/auth.css';
-import PersonIcon from '@mui/icons-material/Person';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LockIcon from '@mui/icons-material/Lock';
-import { defaultUsers } from '../../../lib/data/defaultUsers';
-import { useAuth } from '../../../context/AuthContext/page';
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import PageWrapper from "../../../components/AnimationPresence"
+import CustomAlert from '../../../components/Alert/page'
+import '../../../css/auth.css'
+import PersonIcon from '@mui/icons-material/Person'
+import PhoneIcon from '@mui/icons-material/Phone'
+import LockIcon from '@mui/icons-material/Lock'
+import { defaultUsers } from '../../../lib/data/defaultUsers'
+import { useAuth } from '../../../context/AuthContext/page'
+import { useMediaQuery } from '@mui/material'
 
 interface User {
   uname?: string;
@@ -37,6 +38,7 @@ export default function Login() {
   const [form, setForm] = useState({ logName: '', logPhone: '', logPassword: '' });
   const [alert, setAlert] = useState<{ description: string; success?: boolean } | null>(null);
   const [showPassword, setShowPassword] = useState(false);
+  const isMobile = useMediaQuery('only screen and (max-width: 500px)');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -70,7 +72,7 @@ export default function Login() {
     <PageWrapper>
       <div className="content flex items-center justify-center">
         <div className="box">
-          <h2 className="text-4xl text-purple-600 font-bold text-center mt-4">Log in</h2>
+          <h2 className='text-4xl text-purple-600 font-bold text-center mt-4'>Log in</h2>
           <form className='max-w-[400px] w-full' onSubmit={handleLogin}>
             <div className="input-box">
               <input
@@ -116,7 +118,8 @@ export default function Login() {
           </form>
           <div className="jump-to-login mt-6">
             <p className="text-sm">Don’t have an account?</p>
-            <button className='flex items-center justify-center h-9 w-36 rounded-2xl transition-colors duration-400 font-[500] cursor-pointer bg-purple-600 hover:bg-purple-500/80'>
+            <button className={`flex items-center justify-center h-9 w-36 rounded-2xl transition-colors duration-400 font-[500] cursor-pointer bg-purple-600 hover:bg-purple-500/80 ${
+        isMobile ? 'h-11 w-38' : ''}`}>
             <a href="/register">Create it here</a></button>
           </div>
         </div>
